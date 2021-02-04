@@ -1,0 +1,201 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            padding-top: 90px;
+            text-align: center;
+            background-color: black;
+            color: white;
+
+        }
+
+        button
+        {
+            width: 90px;
+            font-size: 1.3em;
+            color: rgb(165, 32, 32);
+            cursor: pointer;
+
+        }
+        h2
+        {
+            color: coral;
+        }
+        .container
+        {
+            border: solid 1px silver;
+            max-width: 300px;
+            margin: auto;
+
+        }
+        .label
+        {
+            background-color: rgb(204, 63, 11);
+            max-width: 200px;
+            margin: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            min-height: 80px;
+            
+        }
+        input
+        {
+            width: 150px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Discount </h2>
+        <input type="number" id="discount" placeholder="Discount">
+        <br>
+        <input type="number" id="price" placeholder="Price">
+        <br> <br>
+        <button onclick="submit1()"> submit  </button>
+        <button onclick="clear1()" >  C  </button>
+            <div class="label">
+                <p id="newPrice">  </p>
+                <p id="savedPrice">   </p>
+            </div>
+
+
+    </div>
+  
+        <br> <br> 
+
+        <div class="container">  
+            
+            <h2>   Original  Price </h2>
+            <input type="number" id="qq" placeholder=" new Price">
+            <br>
+            <input type="number" id="ww" placeholder="Discount">
+            <br> <br>
+            <button onclick="submit2()"> submit  </button>
+            <button onclick="clear2()">   C  </button>
+            
+            <div class="label">
+                <p id="originalPrice">  </p>
+                <p  id="saving">    </p>
+            </div>
+
+        </div>
+
+
+
+        <script>
+
+            // original price
+             var NewPrice2 = document.getElementById('qq');
+            var discountValue2 = document.getElementById('ww');
+            var OriginalPrice2 = document.getElementById('originalPrice');
+            var Saving2 = document.getElementById('saving');
+
+            
+
+
+            function submit2()
+            {
+                console.log(NewPrice2.value);
+                console.log(discountValue2.value);
+                
+                var originalPriceValue = NewPrice2.value*100/(100-discountValue2.value) ;
+                var SavingValue = originalPriceValue - NewPrice2.value
+
+            
+
+                OriginalPrice2.innerText =  'Original Price: $'+   originalPriceValue;  
+
+                Saving2.innerText = ' You Saved: $' + SavingValue; 
+
+
+                // newPrice  $750 
+                // discount 25%
+                // 750 750
+                // x   100    // this method is 100 * 1000 / 75
+
+
+
+
+            }
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+            /// discount
+            var Discount1 = document.getElementById('discount');
+            var Price1 = document.getElementById('price');
+            var NewPrice1 = document.getElementById('newPrice');
+            var savedPrice1 = document.getElementById('savedPrice');
+
+
+            function submit1()
+            {
+                console.log(Discount1.value);
+                console.log(Price1.value);
+                
+                var SavingValue = (Price1.value * Discount1.value) / 100;
+
+                var newPriceValue = Price1.value - SavingValue;
+
+                 NewPrice1.innerText =  'New Price: $'+   newPriceValue;  
+
+                   savedPrice1.innerText = ' You Saved: $' + SavingValue; 
+                console.log(Saving1) ;
+
+                // 10%
+                //$200
+                // 100% 200 
+                // 10  x  this method is 200 * 10 afterthat result /100
+                // x = 200 *10 /100
+
+
+            }
+
+
+
+            function clear1()
+            {
+                Discount1.value= null;
+                Price1.value=null;
+                NewPrice1.innerText="";
+                savedPrice1.innerText=""; 
+            }
+
+            function clear2()
+            {
+                discountValue2.value= null;
+                NewPrice2.value=null;
+                OriginalPrice2.innerText="";
+                Saving2.innerText=""; 
+            }
+
+
+
+        </script>
+
+</body>
+</html>
+
+
+<!--11:05 mintues--> 
